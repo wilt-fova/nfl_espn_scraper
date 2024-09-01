@@ -1,4 +1,3 @@
-
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import requests
@@ -42,9 +41,8 @@ class player:
 
     def Set_Year(self, year):
 
+        # set year
         self.year = year
-
-    def Set_Soup(self):
 
         # set url to scrape
         url = f'https://www.espn.com/nfl/player/gamelog/_/id/{self.espn_ID}/type/nfl/year/{self.year}'
@@ -184,22 +182,6 @@ class player:
 
         # set scraped player data
         self.game_data = pd.concat([self.game_data, df], ignore_index=True)
-
-    def Set_Half_PPR_Points(self):
-
-        points = []
-
-        for i in range(len(self.game_data.index)):
-
-            if(self.pos == 'QB'): 
-                pass_td = float(self.game_data.iloc[i]['PASS_TD'])
-                pass_yds = float(self.game_data.iloc[i]['PASS_YDS'])
-                int = float(self.game_data.iloc[i]['INT'])
-                points.append(round(points_half_ppr_QB(pass_td, pass_yds, int, 0.0, 0.0), 2))
-
-        print(points)
-
-        # self.game_data['Half_PPR_Points'] = 
 
     def Get_Age(self, dt):
 
