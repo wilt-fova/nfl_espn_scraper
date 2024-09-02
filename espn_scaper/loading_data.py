@@ -4,7 +4,7 @@ import pandas as pd
 # Select Player
 df = pd.read_csv("players.csv")
 years = [2019, 2020, 2021, 2022, 2023]
-plyr_index = 85
+plyr_index = 566
 
 # Get Game Log
 plyr = espn.player(df['first_name'][plyr_index], 

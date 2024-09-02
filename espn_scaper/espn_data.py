@@ -4,7 +4,7 @@ import requests
 import datetime
 from utils import ls_to_matrix, calculate_age
 
-class player:
+class Player:
 
     def __init__(self, firstName, lastName, espn_ID, pos):
 

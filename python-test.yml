@@ -24,4 +24,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run specific Python script with tests
-      run: python path/to/test.py
+      run: python espn_scaper/test.py
