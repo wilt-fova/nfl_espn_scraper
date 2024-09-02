@@ -7,7 +7,7 @@ years = [2019, 2020, 2021, 2022, 2023]
 plyr_index = 566
 
 # Get Game Log
-plyr = espn.player(df['first_name'][plyr_index], 
+plyr = espn.Player(df['first_name'][plyr_index], 
                    df['last_name'][plyr_index], 
                    df['espn_id'][plyr_index], 
                    df['pos'][plyr_index])
