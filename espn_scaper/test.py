@@ -348,9 +348,9 @@ class test(unittest.TestCase):
 
 if __name__ == '__main__':
 
-    # unittest.main()
-    ts = test()
-    ts.test_patrick_mahomes()
-    ts.test_christian_mccaffrey()
-    ts.test_justin_tucker()
-    ts.test_age_calc()
+    unittest.main()
+    # ts = test()
+    # ts.test_patrick_mahomes()
+    # ts.test_christian_mccaffrey()
+    # ts.test_justin_tucker()
+    # ts.test_age_calc()
