@@ -29,7 +29,10 @@ An example can be seen here: https://www.espn.com/nfl/player/gamelog/_/id/436031
 
 Use the package manager pip to install nfl_data_py.
 
-`pip install espn_scraper`
+```markdown
+```python
+pip install espn_scraper
+```
 
 ## Usage
 To use MyProject, run the following command:
