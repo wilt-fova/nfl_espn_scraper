@@ -27,10 +27,9 @@ An example can be seen here: https://www.espn.com/nfl/player/gamelog/_/id/436031
 
 ## Installation
 
-Use the package manager pip to install nfl_data_py.
+Use the package manager pip to install espn_scraper.
 
 ```markdown
-```python
 pip install espn_scraper
 ```
 
