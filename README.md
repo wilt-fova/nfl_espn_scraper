@@ -58,19 +58,25 @@ For any questions or support, please contact:
 
 
 
-Split your code into packages, modules, and functions
+To Do
 -----------------------------------------------------
 
+- finish readme
+- do I need init file
+- check all other files
 - All code should be inside some function (except perhaps ``if __name__ == '__main__':``).
 - Split long functions into smaller functions.
-- If you need to scroll through a function over several screens, it is probably too long.
 - Functions should do one thing and one thing only.
 - Hide internals with underscores.
 - Organize related functions into modules.
 - If modules grow too large, split them.
 - Import from other modules under ``somepackage/`` using ``from .somemodule import something``.
 - Do file I/O on the "outside" of your code, not deep inside.
-
+- Modularise everything you can. I tend to do 'themed' modules, some people do basically a module per function.
+- Don't use different folders unless your project is getting really, really big
+- Stick to one casing format (case_it, caseIt, CaseIt etc.)
+- Decide if you're going to have something to denote module only functions (most people use _fuction or _foo to differentiate it)
+- Comment all code
 
 Classes vs. functions
 ---------------------
@@ -78,8 +84,3 @@ Classes vs. functions
 - Do not overuse classes.
 - Prefer immutable data structures.
 - Prefer pure functions.
-
-
-
-
-
