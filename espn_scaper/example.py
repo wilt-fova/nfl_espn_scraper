@@ -1,22 +1,22 @@
 import espn_data as espn
 import pandas as pd
 
-# Select Player
+# Select Player & Seasons
 df = pd.read_csv("players.csv")
-years = [2019, 2020, 2021, 2022, 2023]
-plyr_index = 566
+years = [2021, 2022, 2023]
+plyr_index = 17
 
-# Get Game Log
+# Create Player Object
 plyr = espn.Player(df['first_name'][plyr_index], 
                    df['last_name'][plyr_index], 
                    df['espn_id'][plyr_index], 
                    df['pos'][plyr_index])
 
+# Set Game Data
 for year in years:
     plyr.Set_Year(year)
     plyr.Set_Game_Data()
     stats_df = plyr.Get_Game_Data()
 
-arrays = [row.to_numpy() for _, row in stats_df.iterrows()]
-for array in arrays:
-    print(list(array))
+# View Game Data
+print(stats_df)
