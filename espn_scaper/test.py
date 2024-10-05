@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-import espn_data as espn
+import player as espn
 from utils import calculate_age
 
 class test(unittest.TestCase):
@@ -286,11 +286,11 @@ class test(unittest.TestCase):
         for item in df['GAME_DT']:
             self.assertTrue(isinstance(item, pd.Timestamp))
 
-        last_age = 100
+        last_age = 0
         for item in df['AGE']:
             self.assertTrue(item > 19)         # Youngest NFL Player
             self.assertTrue(item < 46)         # Oldest NFL Player
-            self.assertTrue(item <= last_age)   # Descending Age
+            self.assertTrue(item >= last_age)   # Ascending Age
             last_age = item
 
         for item in df['OPP']:

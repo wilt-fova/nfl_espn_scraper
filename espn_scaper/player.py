@@ -165,6 +165,8 @@ class Player:
         if not self.game_log['GAME_DT'].isin([new_game_dt]).any():
 
             self.game_log = pd.concat([self.game_log, new_season_df], ignore_index=True)
+        
+        self.game_log = self.game_log.sort_values(by='GAME_DT')
 
     def Get_Age(self, dt):
 
