@@ -94,10 +94,9 @@ class test(unittest.TestCase):
                 ['Mahomes', 'Patrick', pd.Timestamp('2023-09-24 00:00:00'), 28.02, 'vsCHI', 'W41-10', '24', '33', '272', '72.7', '8.2', '3', '0', '37', '0', '127.3', '86.3', '3', '28', '9.3', '0', '15'],
                 ['Mahomes', 'Patrick', pd.Timestamp('2023-09-17 00:00:00'), 28.0, '@JAX', 'W17-9', '29', '41', '305', '70.7', '7.4', '2', '1', '54', '1', '98.1', '71.8', '7', '30', '4.3', '0', '14'],
                 ['Mahomes', 'Patrick', pd.Timestamp('2023-09-07 00:00:00'), 27.97, 'vsDET', 'L21-20', '21', '39', '226', '53.9', '5.8', '2', '1', '34', '0', '77.5', '66.9', '6', '45', '7.5', '0', '16']]
-
         expected_mahomes = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CMP', 'ATT', 'PASS_YDS', 'CMP%', 'PASS_AVG', 'PASS_TD', 'INT', 'PASS_LNG', 'SACK', 'RTG', 'QBR', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG'])
-
         expected_mahomes = expected_mahomes.sort_values(by='GAME_DT')
+        expected_mahomes = expected_mahomes.reset_index(drop=True)
 
         self.assertTrue(actual_mahomes.equals(expected_mahomes))
 
@@ -170,10 +169,9 @@ class test(unittest.TestCase):
                 ['McCaffrey', 'Christian', pd.Timestamp('2023-09-21 00:00:00'), 27.29, 'vsNYG', 'W30-12', '18', '85', '4.7', '1', '12', '5', '5', '34', '6.8', '0', '17', '0', '0', '0', '0'],
                 ['McCaffrey', 'Christian', pd.Timestamp('2023-09-17 00:00:00'), 27.28, '@LAR', 'W30-23', '20', '116', '5.8', '1', '51', '3', '3', '19', '6.3', '0', '9', '0', '0', '0', '0'],
                 ['McCaffrey', 'Christian', pd.Timestamp('2023-09-10 00:00:00'), 27.26, '@PIT', 'W30-7', '22', '152', '6.9', '1', '65', '3', '5', '17', '5.7', '0', '7', '1', '0', '0', '0']]
-
         expected_cmc = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG', 'REC', 'TGTS', 'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'FUM', 'LST', 'FF', 'KB'])
-
         expected_cmc = expected_cmc.sort_values(by='GAME_DT')
+        expected_cmc = expected_cmc.reset_index(drop=True)
 
         self.assertTrue(actual_cmc.equals(expected_cmc))
 
@@ -270,10 +268,9 @@ class test(unittest.TestCase):
                 ['Tucker', 'Justin', pd.Timestamp('2023-09-24 00:00:00'), 33.84, 'vsIND', 'L22-19 OT', '0-0', '0-0', '0-0', '0-0', '1-2', '50', '50.0', '1-2', '50', '2-2', '5'],
                 ['Tucker', 'Justin', pd.Timestamp('2023-09-17 00:00:00'), 33.82, '@CIN', 'W27-24', '0-0', '0-0', '0-0', '2-2', '0-1', '44', '67.0', '2-3', '42', '3-3', '9'],
                 ['Tucker', 'Justin', pd.Timestamp('2023-09-10 00:00:00'), 33.8, 'vsHOU', 'W25-9', '0-0', '0-0', '1-1', '0-0', '0-0', '39', '100.0', '1-1', '39', '2-2', '5']]
-
         expected_tucker = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', '1-19', '20-29', '30-39', '40-49', '50+', 'LNG', 'FG%', 'FG', 'AVG', 'XP', 'PTS'])
-
         expected_tucker = expected_tucker.sort_values(by='GAME_DT')
+        expected_tucker = expected_tucker.reset_index(drop=True)
 
         self.assertTrue(actual_tucker.equals(expected_tucker))
 
