@@ -23,3 +23,5 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST.in
+
+nfl_espn_scraper.egg-info/
