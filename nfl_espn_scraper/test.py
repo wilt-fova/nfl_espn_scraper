@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import player as espn
-from utils import calculate_age
+from .utils import calculate_age
 
 class test(unittest.TestCase):
 

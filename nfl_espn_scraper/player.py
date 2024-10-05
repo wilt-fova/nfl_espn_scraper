@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import requests
 import datetime
-from utils import ls_to_matrix, calculate_age
+from .utils import ls_to_matrix, calculate_age
 
 class Player:
 
