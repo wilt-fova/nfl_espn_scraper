@@ -1,5 +1,5 @@
 
-# ESPN Scraper
+# NFL ESPN Scraper
 
 The purpose of this repository is to scrape NFL data from ESPN and load it into pandas dataframes.
 
@@ -16,10 +16,10 @@ In addition to game data, the birthdate of the player is scraped and used to cal
 
 ## Installation
 
-Use the package manager pip to install espn_scraper.
+Use the package manager pip to install nfl_espn_scraper.
 
 ```markdown
-pip install espn_scraper
+pip install nfl_espn_scraper
 ```
 
 ## Testing Suite
