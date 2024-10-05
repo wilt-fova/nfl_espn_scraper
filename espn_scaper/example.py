@@ -3,7 +3,7 @@ import pandas as pd
 import test as ts
 
 # Select player and seasons
-seasons = [2021, 2022, 2023]
+seasons = [2022, 2023]
 player_csv_index = 0
 
 # Get player information from csv file
