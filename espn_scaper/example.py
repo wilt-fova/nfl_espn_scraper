@@ -3,20 +3,19 @@ import pandas as pd
 
 # Select Player & Seasons
 df = pd.read_csv("players.csv")
-years = [2021, 2022, 2023]
-plyr_index = 17
+seasons = [2021, 2022, 2023]
+csv_index = 0
 
 # Create Player Object
-plyr = espn.Player(df['first_name'][plyr_index], 
-                   df['last_name'][plyr_index], 
-                   df['espn_id'][plyr_index], 
-                   df['pos'][plyr_index])
+patrick_mahomes = espn.Player(df['first_name'][csv_index], 
+                              df['last_name'][csv_index], 
+                              df['espn_id'][csv_index], 
+                              df['pos'][csv_index])
 
-# Set Game Data
-for year in years:
-    plyr.Set_Year(year)
-    plyr.Set_Game_Data()
-    stats_df = plyr.Get_Game_Data()
+# Add Seasons to Game Log
+for season in seasons:
+    patrick_mahomes.Set_Season(season)
+    patrick_mahomes.Set_Game_Log()
 
-# View Game Data
-print(stats_df)
+# View Game Log
+print(patrick_mahomes.Get_Game_Log())

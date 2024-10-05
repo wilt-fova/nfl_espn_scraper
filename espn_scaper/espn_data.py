@@ -8,43 +8,34 @@ class Player:
 
     def __init__(self, firstName, lastName, espn_ID, pos):
 
+        # set class variables
         self.firstName = firstName
         self.lastName = lastName
         self.espn_ID = espn_ID
         self.pos = pos
-        self.year = None
+        self.season = None
         self.soup = None
 
         if (pos == 'QB'):
-            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 
-                                   'CMP', 'ATT', 'PASS_YDS', 'CMP%', 'PASS_AVG', 'PASS_TD', 
-                                   'INT', 'PASS_LNG', 'SACK', 'RTG', 'QBR', 'CAR', 'RUSH_YDS', 
-                                   'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG']
+            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CMP', 'ATT', 'PASS_YDS', 'CMP%', 'PASS_AVG', 'PASS_TD', 'INT', 'PASS_LNG', 'SACK', 'RTG', 'QBR', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG']
         elif (pos == 'RB'):
-            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CAR', 
-                                   'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG', 'REC', 'TGTS', 
-                                   'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'FUM', 'LST', 'FF', 'KB']
+            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG', 'REC', 'TGTS', 'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'FUM', 'LST', 'FF', 'KB']
         elif (pos == 'WR' or pos == 'TE'):
-            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'REC', 
-                                   'TGTS', 'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'CAR', 
-                                   'RUSH_YDS', 'RUSH_AVG', 'RUSH_LNG', 'RUSH_TD', 'FUM', 'LST', 
-                                   'FF', 'KB']
+            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'REC', 'TGTS', 'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_LNG', 'RUSH_TD', 'FUM', 'LST', 'FF', 'KB']
         elif (pos == 'K'):
-            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', '1-19', 
-                                   '20-29', '30-39', '40-49', '50+', 'LNG', 'FG%', 'FG', 
-                                   'AVG', 'XP', 'PTS']
+            self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', '1-19', '20-29', '30-39', '40-49', '50+', 'LNG', 'FG%', 'FG', 'AVG', 'XP', 'PTS']
         else:
             raise ValueError("Position must be one of the following: QB, RB, WR, TE, K")
 
-        self.game_data = pd.DataFrame(None, columns=self.stats_col_espn)
+        self.game_log = pd.DataFrame(None, columns=self.stats_col_espn)
 
-    def Set_Year(self, year):
+    def Set_Season(self, season):
 
-        # set year
-        self.year = year
+        # set season
+        self.season = season
 
         # set url to scrape
-        url = f'https://www.espn.com/nfl/player/gamelog/_/id/{self.espn_ID}/type/nfl/year/{self.year}'
+        url = f'https://www.espn.com/nfl/player/gamelog/_/id/{self.espn_ID}/type/nfl/year/{self.season}'
 
         headers = requests.utils.default_headers()
         headers.update({
@@ -56,28 +47,16 @@ class Player:
 
         self.soup = bs(page.content, features="html.parser")
 
-    def Get_Position(self):
+    def Get_Game_Log(self):
 
-        position_soup = [i.text for i in self.soup.find_all(class_='PlayerHeader__Team_Info list flex pt1 pr4 min-w-0 flex-basis-0 flex-shrink flex-grow nowrap')]
+        return self.game_log
 
-        pos = ''
-        if 'Quarterback' in position_soup[0]: pos = 'QB'
-        elif ('Running Back' in position_soup[0]) or ('Fullback' in position_soup[0]): pos = 'RB'
-        elif 'Tight End' in position_soup[0]: pos = 'TE'
-        elif 'Wide Receiver' in position_soup[0]: pos = 'WR'
-        elif 'Kicker' in position_soup[0]: pos = 'K'
+    def Set_Game_Log(self):
 
-        return pos
-
-    def Get_Game_Data(self):
-
-        return self.game_data
-
-    def Set_Game_Data(self):
-
-        # check whether the player was in the NFL during the given year
-        invalid_year = [i.text for i in self.soup.find_all(class_='NoDataAvailable__Msg__Content')]
-        if invalid_year == ['No available information.']: return None
+        # check whether the player was in the NFL during the given season
+        invalid_season = [i.text for i in self.soup.find_all(class_='NoDataAvailable__Msg__Content')]
+        if invalid_season == ['No available information.']: 
+            raise ValueError("Player was not in the NFL in the given season")
 
         # set HTML class
         stat = [i.text for i in self.soup.find_all(class_='Table__TD')]
@@ -123,7 +102,7 @@ class Player:
         elif ('NFC CHAMPIONSHIP' in stat) and (self.pos == 'QB'): stat = stat[(stat.index('NFC CHAMPIONSHIP') + 2):]
 
         elif ('Pro Bowl' in stat) and (self.pos == 'QB'): stat = stat[(stat.index('Pro Bowl') + 2):]
-        elif ('Pro Bowl' in stat) and (self.pos == 'K') and (self.year == 2021): stat = stat[(stat.index('Pro Bowl') + 2):]
+        elif ('Pro Bowl' in stat) and (self.pos == 'K') and (self.season == 2021): stat = stat[(stat.index('Pro Bowl') + 2):]
         elif ('Pro Bowl' in stat): stat = stat[(stat.index('Pro Bowl') + 3):]
         elif ('PRO BOWL' in stat): stat = stat[(stat.index('PRO BOWL') + 3):]
         elif ('Pro Bowl Games' in stat) and (self.pos == 'QB'): stat = stat[(stat.index('Pro Bowl Games') + 2):]
@@ -156,10 +135,10 @@ class Player:
             
             month = int(ls[0][4:].split("/")[0])
             day = int(ls[0][4:].split("/")[1])
-            year = self.year
-            if month in [1,2]: year = year + 1
+            season = self.season
+            if month in [1,2]: season = season + 1
 
-            game_dt = datetime.datetime(year, month, day)
+            game_dt = datetime.datetime(season, month, day)
             age = self.Get_Age(game_dt)
 
             ls[0] = game_dt
@@ -171,16 +150,21 @@ class Player:
             ls.insert(0, self.lastName)
 
         # create pandas dataframe
-        df = pd.DataFrame(matrix, columns=self.stats_col_espn)
+        new_season_df = pd.DataFrame(matrix, columns=self.stats_col_espn)
 
         # replace dashes with zero
         for key in self.stats_col_espn:
-            for i in range(len(df[key])):
-                if df[key][i] == '-':
-                    df[key][i] = '0'
+            for i in range(len(new_season_df[key])):
+                if new_season_df[key][i] == '-':
+                    new_season_df[key][i] = '0'
 
-        # set scraped player data
-        self.game_data = pd.concat([self.game_data, df], ignore_index=True)
+        # ignore if season already in self.game_log
+        new_game_dt = new_season_df['GAME_DT'][0]
+
+        # append scraped player data only if that season isn't already in the game log
+        if not self.game_log['GAME_DT'].isin([new_game_dt]).any():
+
+            self.game_log = pd.concat([self.game_log, new_season_df], ignore_index=True)
 
     def Get_Age(self, dt):
 
