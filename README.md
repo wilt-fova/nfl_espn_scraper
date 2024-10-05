@@ -33,20 +33,31 @@ pip install espn_scraper
 ```
 
 ## Usage
-To use MyProject, run the following command:
 
-```bash
-python myproject.py --option value
+```markdown
+import espn_scraper as espn
+```
+
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
+show how to use code here
 
 ## Contributing
-We welcome contributions to MyProject. To contribute:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Make your changes.
-4. Submit a pull request.
+Pull requests are welcome. Feel free to reach out!
 
 ## Contact
+
 For any questions or support, please contact:
 
 - Wil Maltby (https://github.com/wilt-fova)
