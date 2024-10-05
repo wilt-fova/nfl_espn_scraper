@@ -28,4 +28,5 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run specific Python script with tests
-      run: python nfl_espn_scraper/test.py
+      run: python -m nfl_espn_scraper/test.py
+      # run: python nfl_espn_scraper/test.py
