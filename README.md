@@ -16,13 +16,12 @@ In addition to game data, the birthdate of the player is scraped and used to cal
 
 A testing suite is included to check code in two ways. 
 
-1. A few functions test specific cases for complete equality. This is done for a running back (McCaffrey), quarterback (Mahomes), and kicker (Tucker).
-    These tests check that every game over the last 5 seasons is being pulled and prepared correctly. 
+1. A few functions test specific cases for complete equality. This is done for a running back (McCaffrey), quarterback (Mahomes), and kicker (Tucker). These tests check that every game over the last 5 seasons is being pulled and prepared correctly. 
 
-2. A second set of functions are included to test that the properties of individual stats are correct. 
-This second set is included to allow the user to verify correctness when scraping new player data as not all player data follows the same structure. 
-If some new player failed to pass one of these tests, it allowed me to quickly write new rules to handle the unique case. 
-A common example is a player playing a game in Europe which is noted in the center of the table being scraped. 
+2. A second set of functions are included to test that the properties of individual stats are correct. This second set is included to allow the user to verify correctness when scraping new player data as not all player data follows the same structure. 
+
+If a new run fails to pass one of these tests, it signals to the user that an edit is likely necessary to handle the unique case. 
+A common example is a player playing a game in Europe which is noted in the center of the table being scraped.
 An example can be seen here: https://www.espn.com/nfl/player/gamelog/_/id/4360310/type/nfl/year/2023
 
 ## Installation

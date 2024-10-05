@@ -34,8 +34,7 @@ class Player:
                                    '20-29', '30-39', '40-49', '50+', 'LNG', 'FG%', 'FG', 
                                    'AVG', 'XP', 'PTS']
         else:
-            self.stats_col_espn = []
-            # raise ValueError("Position must be one of the following: QB, RB, WR, TE, K")
+            raise ValueError("Position must be one of the following: QB, RB, WR, TE, K")
 
         self.game_data = pd.DataFrame(None, columns=self.stats_col_espn)
 
