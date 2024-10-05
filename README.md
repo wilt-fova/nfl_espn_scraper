@@ -40,14 +40,15 @@ import pandas as pd
 import test as ts
 ```
 
-Select player and seasons
+Select player and seasons. 
+A csv file of players is included to simplify this process. Set the player_csv_index variable to your desired player or enter their information in the following step. 
 
 ```markdown
 seasons = [2021, 2022, 2023]
 player_csv_index = 0
 ```
 
-Get player information from csv file
+Get player information from csv file or enter player information if not included in the csv file.
 
 ```markdown
 df = pd.read_csv("players.csv")
@@ -71,20 +72,20 @@ for season in seasons:
     patrick_mahomes.Set_Game_Log()
 ```
 
-Get game log
+Get Game Log
 
 ```markdown
 game_log = patrick_mahomes.Get_Game_Log()
 ```
 
-Verify using general property tests
+Verify with General Property Tests
 
 ```markdown
 test = ts.test()
 test.verify_espn_pull(game_log, first, last)
 ```
 
-
+Patrick Mahomes Game Log
 
 ```markdown
        LAST    FIRST    GAME_DT    AGE    OPP     RESULT CMP ATT PASS_YDS  CMP% PASS_AVG PASS_TD INT PASS_LNG SACK    RTG   QBR CAR RUSH_YDS RUSH_AVG RUSH_TD RUSH_LNG
