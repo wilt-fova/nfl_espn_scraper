@@ -1,4 +1,4 @@
-import player as espn
+import nfl_espn_scraper.player as espn
 import pandas as pd
 import test as ts
 
