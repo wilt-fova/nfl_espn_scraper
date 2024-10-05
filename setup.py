@@ -4,7 +4,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(
-    name='espn_scraper',
+    name='nfl_espn_scraper',
     version='0.1.0',
     packages=find_packages(),
     install_requires=required,
@@ -12,7 +12,7 @@ setup(
     author_email='wilmaltby0618@gmail.com',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/wilt-fova/espn_scraper',
+    url='https://github.com/wilt-fova/nfl_espn_scraper',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
