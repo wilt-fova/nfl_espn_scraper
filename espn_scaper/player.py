@@ -16,6 +16,7 @@ class Player:
         self.season = None
         self.soup = None
 
+        # set column names given position type
         if (pos == 'QB'):
             self.stats_col_espn = ['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CMP', 'ATT', 'PASS_YDS', 'CMP%', 'PASS_AVG', 'PASS_TD', 'INT', 'PASS_LNG', 'SACK', 'RTG', 'QBR', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG']
         elif (pos == 'RB'):
@@ -27,6 +28,7 @@ class Player:
         else:
             raise ValueError("Position must be one of the following: QB, RB, WR, TE, K")
 
+        # set initial game log df
         self.game_log = pd.DataFrame(None, columns=self.stats_col_espn)
 
     def Set_Season(self, season):
@@ -37,6 +39,7 @@ class Player:
         # set url to scrape
         url = f'https://www.espn.com/nfl/player/gamelog/_/id/{self.espn_ID}/type/nfl/year/{self.season}'
 
+        # specify user agent
         headers = requests.utils.default_headers()
         headers.update({
             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
@@ -45,6 +48,7 @@ class Player:
         # send request for player data
         page = requests.get(url, headers=headers)
 
+        # set soup variable with text from web page
         self.soup = bs(page.content, features="html.parser")
 
     def Get_Game_Log(self):

@@ -127,24 +127,9 @@ print(game_log)
 17  Mahomes  Patrick 2023-12-31  28.29  vsCIN     W25-17  21  29      245  72.4      8.4       1   0       67    2  109.1  52.8   4        2      0.5       0        2
 ```
 
-
-
 ## Contributing
 
 Pull requests are welcome. For any questions or support, feel free to reach out!
 
 - Wil Maltby (https://github.com/wilt-fova)
 - Email: wilmaltby0618@gmail.com
-
-
-
-
-
------------------------------------------------------
-
-To Do's
-
-- Split long functions into smaller functions.
-- Comment all code
-- finish readme
-- do I need init file??

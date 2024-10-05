@@ -9,11 +9,11 @@ class test(unittest.TestCase):
 
         mahomes = espn.Player('Patrick', 'Mahomes', 3139477, 'QB')
 
-        for year in [2019, 2020, 2021, 2022, 2023]:
-            mahomes.Set_Year(year)
-            mahomes.Set_Game_Data()
+        for season in [2019, 2020, 2021, 2022, 2023]:
+            mahomes.Set_Season(season)
+            mahomes.Set_Game_Log()
 
-        actual_mahomes = mahomes.Get_Game_Data()
+        actual_mahomes = mahomes.Get_Game_Log()
 
         data = [['Mahomes', 'Patrick', pd.Timestamp('2019-12-29 00:00:00'), 24.28, 'vsLAC', 'W31-21', '16', '25', '174', '64.0', '7.0', '1', '1', '47', '0', '81.1', '61.7', '7', '21', '3.0', '0', '11'],
                 ['Mahomes', 'Patrick', pd.Timestamp('2019-12-22 00:00:00'), 24.26, '@CHI', 'W26-3', '23', '33', '251', '69.7', '7.6', '2', '0', '19', '1', '112.1', '89.3', '2', '14', '7.0', '1', '12'],
@@ -103,11 +103,11 @@ class test(unittest.TestCase):
 
         cmc = espn.Player('Christian', 'McCaffrey', 3117251, 'RB')
 
-        for year in [2019, 2020, 2021, 2022, 2023]:
-            cmc.Set_Year(year)
-            cmc.Set_Game_Data()
+        for season in [2019, 2020, 2021, 2022, 2023]:
+            cmc.Set_Season(season)
+            cmc.Set_Game_Log()
 
-        actual_cmc = cmc.Get_Game_Data()
+        actual_cmc = cmc.Get_Game_Log()
 
         data = [['McCaffrey', 'Christian', pd.Timestamp('2019-12-29 00:00:00'), 23.56, 'vsNO', 'L42-10', '9', '26', '2.9', '1', '10', '7', '10', '72', '10.3', '0', '28', '0', '0', '0', '0'],
                 ['McCaffrey', 'Christian', pd.Timestamp('2019-12-22 00:00:00'), 23.54, '@IND', 'L38-6', '13', '54', '4.2', '0', '14', '15', '15', '119', '7.9', '0', '13', '0', '0', '0', '0'],
@@ -177,11 +177,11 @@ class test(unittest.TestCase):
 
         tucker = espn.Player('Justin', 'Tucker', 15683, 'K')
         
-        for year in [2019, 2020, 2021, 2022, 2023]:
-            tucker.Set_Year(year)
-            tucker.Set_Game_Data()
+        for season in [2019, 2020, 2021, 2022, 2023]:
+            tucker.Set_Season(season)
+            tucker.Set_Game_Log()
 
-        actual_tucker = tucker.Get_Game_Data()
+        actual_tucker = tucker.Get_Game_Log()
 
         data = [['Tucker', 'Justin', pd.Timestamp('2019-12-29 00:00:00'), 30.1, 'vsPIT', 'W28-10', '0-0', '1-1', '0-0', '3-3', '0-0', '47', '100.0', '4-4', '39', '2-2', '14'],
                 ['Tucker', 'Justin', pd.Timestamp('2019-12-22 00:00:00'), 30.08, '@CLE', 'W31-15', '0-0', '0-0', '1-1', '0-0', '0-0', '31', '100.0', '1-1', '31', '4-4', '7'],

@@ -1,4 +1,4 @@
-import player as plyr
+import player as espn
 import pandas as pd
 import test as ts
 
@@ -14,7 +14,7 @@ id = df['espn_id'][player_csv_index]
 position = df['pos'][player_csv_index]
 
 # Create Player Object
-patrick_mahomes = plyr.Player(first, last, id, position)
+patrick_mahomes = espn.Player(first, last, id, position)
 
 # Add Seasons to Game Log
 for season in seasons:
