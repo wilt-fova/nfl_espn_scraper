@@ -28,4 +28,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run specific Python script with tests
-      run: python espn_scaper/test.py
+      run: python nfl_espn_scaper/test.py
