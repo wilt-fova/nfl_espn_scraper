@@ -14,16 +14,6 @@ The scraping tool is designed to provide an easy, free way to extract and clean 
 
 In addition to game data, the birthdate of the player is scraped and used to calculate age by game. 
 
-A testing suite is included to check code in two ways. 
-
-1. A few functions test specific cases for complete equality. This is done for a running back (McCaffrey), quarterback (Mahomes), and kicker (Tucker). These tests check that every game over the last 5 seasons is being pulled and prepared correctly. 
-
-2. A second set of functions are included to test that the properties of individual stats are correct. This second set is included to allow the user to verify correctness when scraping new player data as not all player data follows the same structure. 
-
-If a new run fails to pass one of these tests, it signals to the user that an edit is likely necessary to handle the unique case. 
-A common example is a player playing a game in Europe which is noted in the center of the table being scraped.
-An example can be seen here: https://www.espn.com/nfl/player/gamelog/_/id/4360310/type/nfl/year/2023
-
 ## Installation
 
 Use the package manager pip to install espn_scraper.
@@ -31,6 +21,16 @@ Use the package manager pip to install espn_scraper.
 ```markdown
 pip install espn_scraper
 ```
+
+## Testing Suite Overview
+
+This repository includes a testing suite to ensure the accuracy and consistency of data processing for NFL player game logs. The suite performs two main types of tests:
+
+1. **Specific Case Tests**  
+   A set of functions test complete equality for specific players, including a running back (Christian McCaffrey), quarterback (Patrick Mahomes), and kicker (Justin Tucker). These tests verify that all games from the last five seasons for these players are being scraped and processed correctly.
+
+2. **General Property Tests**  
+   Another set of functions checks the integrity of individual stats by verifying data types, ranges, and lengths. This allows users to validate new player data, as different player datasets may vary in structure. For example, some stats might have unique formatting, such as games played in Europe, which are denoted differently in the scraped tables. If a test fails, it typically indicates that a modification is needed to handle an edge case. For instance, a player playing an international game might have a note about the location in the center of the table being scraped, as seen here: [Mahomes' 2023 game log](https://www.espn.com/nfl/player/gamelog/_/id/4360310/type/nfl/year/2023).
 
 ## Usage
 
@@ -67,11 +67,12 @@ For any questions or support, please contact:
 
 
 
-
-To Do
 -----------------------------------------------------
 
+To Do's
+
 - finish readme
+
 - do I need init file
 - check all other files
 - All code should be inside some function (except perhaps ``if __name__ == '__main__':``).
@@ -87,10 +88,6 @@ To Do
 - Stick to one casing format (case_it, caseIt, CaseIt etc.)
 - Decide if you're going to have something to denote module only functions (most people use _fuction or _foo to differentiate it)
 - Comment all code
-
-Classes vs. functions
----------------------
-
 - Do not overuse classes.
 - Prefer immutable data structures.
 - Prefer pure functions.
