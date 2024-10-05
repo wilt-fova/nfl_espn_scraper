@@ -97,6 +97,8 @@ class test(unittest.TestCase):
 
         expected_mahomes = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CMP', 'ATT', 'PASS_YDS', 'CMP%', 'PASS_AVG', 'PASS_TD', 'INT', 'PASS_LNG', 'SACK', 'RTG', 'QBR', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG'])
 
+        expected_mahomes = expected_mahomes.sort_values(by='GAME_DT')
+
         self.assertTrue(actual_mahomes.equals(expected_mahomes))
 
     def test_christian_mccaffrey(self):
@@ -170,6 +172,8 @@ class test(unittest.TestCase):
                 ['McCaffrey', 'Christian', pd.Timestamp('2023-09-10 00:00:00'), 27.26, '@PIT', 'W30-7', '22', '152', '6.9', '1', '65', '3', '5', '17', '5.7', '0', '7', '1', '0', '0', '0']]
 
         expected_cmc = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', 'CAR', 'RUSH_YDS', 'RUSH_AVG', 'RUSH_TD', 'RUSH_LNG', 'REC', 'TGTS', 'REC_YDS', 'REC_AVG', 'REC_TD', 'REC_LNG', 'FUM', 'LST', 'FF', 'KB'])
+
+        expected_cmc = expected_cmc.sort_values(by='GAME_DT')
 
         self.assertTrue(actual_cmc.equals(expected_cmc))
 
@@ -268,6 +272,8 @@ class test(unittest.TestCase):
                 ['Tucker', 'Justin', pd.Timestamp('2023-09-10 00:00:00'), 33.8, 'vsHOU', 'W25-9', '0-0', '0-0', '1-1', '0-0', '0-0', '39', '100.0', '1-1', '39', '2-2', '5']]
 
         expected_tucker = pd.DataFrame(data, columns=['LAST', 'FIRST', 'GAME_DT', 'AGE', 'OPP', 'RESULT', '1-19', '20-29', '30-39', '40-49', '50+', 'LNG', 'FG%', 'FG', 'AVG', 'XP', 'PTS'])
+
+        expected_tucker = expected_tucker.sort_values(by='GAME_DT')
 
         self.assertTrue(actual_tucker.equals(expected_tucker))
 

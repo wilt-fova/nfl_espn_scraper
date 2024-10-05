@@ -170,6 +170,7 @@ class Player:
 
             self.game_log = pd.concat([self.game_log, new_season_df], ignore_index=True)
         
+        # sort games by date for readability
         self.game_log = self.game_log.sort_values(by='GAME_DT')
 
     def Get_Age(self, dt):
