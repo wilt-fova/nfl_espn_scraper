@@ -1,1 +1,2 @@
 include README.md LICENSE
+include nfl_espn_scraper/utils.py

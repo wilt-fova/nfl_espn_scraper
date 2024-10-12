@@ -40,22 +40,16 @@ import pandas as pd
 import test as ts
 ```
 
-Select player and seasons. 
-A csv file of players is included to simplify this process. Set the player_csv_index variable to your desired player or enter their information in the following step. 
+Select player and seasons. The first and last name do not need to be correct but the ID and position must be.
+Position can be QB, RB, WR, TE, or K.
+Github user mayscopeland keeps a list of player IDs here: [ESPN Player IDs](https://github.com/mayscopeland/ffb_ids).
 
 ```markdown
 seasons = [2022, 2023]
-player_csv_index = 0
-```
-
-Get player information from csv file or enter player information if not included in the csv file.
-
-```markdown
-df = pd.read_csv("players.csv")
-first = df['first_name'][player_csv_index]
-last = df['last_name'][player_csv_index]
-id = df['espn_id'][player_csv_index]
-position = df['pos'][player_csv_index]
+first = 'Patrick'
+last = 'Mahomes'
+id = 3139477
+position = 'QB'
 ```
 
 Create Player Object

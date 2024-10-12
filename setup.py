@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='nfl_espn_scraper',
-    version='0.3',
+    version='0.5',
     packages=find_packages(),
     install_requires=required,
     author='Wil Maltby',
