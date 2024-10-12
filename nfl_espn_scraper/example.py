@@ -1,6 +1,6 @@
-import nfl_espn_scraper.player as espn
 import pandas as pd
-import test as ts
+from . import test as ts
+from . import player as espn
 
 # Select player and seasons
 seasons = [2022, 2023]

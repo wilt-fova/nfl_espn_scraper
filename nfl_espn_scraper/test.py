@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
-import nfl_espn_scraper.player as espn
-from nfl_espn_scraper.utils import calculate_age
+from . import player as espn
+from .utils import calculate_age
 
 class test(unittest.TestCase):
 
